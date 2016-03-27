@@ -22,6 +22,7 @@ myApp.controller("PopupListController", function ($scope) {
     summary_type = 'URL';
   });
 
+  // increases the summary font size
   $('#incr_font').click(function (){
     if(font_size_idx != 3){
       $('#summary_container').css('font-size', font_sizes[font_size_idx + 1]);
@@ -29,14 +30,13 @@ myApp.controller("PopupListController", function ($scope) {
     }
   }); 
 
+  // decreases the summary font size
   $('#decr_font').click(function (){
     if(font_size_idx != 0){
       $('#summary_container').css('font-size', font_sizes[font_size_idx - 1]);
       font_size_idx--; 
     }
   });
-
-
 
   // copies the summary to the clipboard
   $('#copy_button').click(function(){ 
@@ -111,32 +111,6 @@ $("#minus_button").click(function(event) {
   }
 });
 
-/*$( "#sentence" ).hover(function() {
-  console.log('hover');
-  var text = $( this ).text(); 
-  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-    chrome.tabs.sendMessage(tabs[0].id, {'command': 'highlight',"highlight":text});
-  });
-});*/
-
-/*$(document).ready(function(){
-  $scope.hoverIn = function(event){
-    var text = this.sentence;
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-      chrome.tabs.sendMessage(tabs[0].id, {'command': 'highlight','text':text});
-    });
-  };
-
-  $scope.hoverOut = function(){
-
-  };
-});
-*/
-
-
-
-
-
 // This function handles all the calls for a new summary 
 function initialize(){
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
@@ -152,7 +126,7 @@ function initialize(){
 function getTextApiObject(){
   var AYLIENTextAPI = require('aylien_textapi');
   textapi = new AYLIENTextAPI({
-    application_id: ID, // can get your own id and key at https://developer.aylien.com/signup
+    application_id: ID, 
     application_key: key
   });
   return textapi; 
@@ -245,7 +219,7 @@ myApp.controller("KeywordsController", function ($scope) {
     });
   });
 
-
+  // extracts the keywords from the article
   function getKeywords(textapi, url){
     textapi.entities({
       url: url 
@@ -285,7 +259,8 @@ myApp.controller("info", function ($scope) {
     });
   });
 });
-
+ 
+ //attempts to extract the author's name and the publication date
  function getInfo(textapi, url){
   textapi.extract({
     url: url

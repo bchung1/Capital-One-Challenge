@@ -1,3 +1,4 @@
+// listener to get URL from current tab 
 chrome.runtime.onMessage.addListener(
 	function(request, sender, sendResponse) {
 		if(request.command == "getURL") {
@@ -6,6 +7,7 @@ chrome.runtime.onMessage.addListener(
 		sendResponse(URL);
 	});
 
+// listener to highlight summary sentences
 chrome.runtime.onMessage.addListener(
 	function(request, sender, sendResponse) {
 		if(request.command == "highlight") {
