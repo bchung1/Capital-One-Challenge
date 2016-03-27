@@ -58,7 +58,7 @@ This page lists the methods of summarization <br><br>
 
 ![alt text](screenshots/highlight.png "This is the default layout which summarizes the current page in 10 sentences") <br>
 
-This is the bonus objective I added which highlights the summary sentences in the current browser page. I hoped that this feature would help readers easily identify where the summary sentences and its context in the article as whole. <br> <br>
+This is the bonus objective I added which highlights the summary sentences in the current browser page. I hoped that this feature would help readers easily identify the summary sentences. Some sentences need more context and this feature is quick way to achieve this. <br> <br>
 
 
 
