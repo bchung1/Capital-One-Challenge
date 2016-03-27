@@ -7,8 +7,6 @@
   "author": "Brian Chung",
   "license": "MIT",
   "dependencies": {
-    "aylien_textapi": "0.5.0",
-    "browserify": "13.0.0",
-    "watchify": "3.7.0"
+    "aylien_textapi": "0.5.0"
   }
 }
