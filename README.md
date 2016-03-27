@@ -33,13 +33,20 @@ $ sudo browserify popup.js -o bundle.js <br>
 
 #Extension Features
 
-![alt text](screenshots/home.png "This is the default layout which summarizes the current page in 10 sentences")
-![alt text](screenshots/keywords.png "This page provides a table of keywords and phrases categorized by keywords, people, organizations, and locations")
-![alt text](screenshots/article_info.png "This page attempts to extract the authors name and publication date of the article")
-![alt text](screenshots/home.png "This is the default layout which summarizes the current page in 10 sentences")
-![alt text](screenshots/instructions.png "This page lists the methods of summarization") 
-![alt text](screenshots/home.png "This is the default layout which summarizes the current page in 10 sentences")
-![alt text](screenshots/buttons.png "This is the default layout which summarizes the current page in 10 sentences")
+![alt text](screenshots/home.png "This is the default layout which summarizes the current page in 10 sentences") <br>
+
+![alt text](screenshots/keywords.png "This page provides a table of keywords and phrases categorized by keywords, people, organizations, and locations") <br>
+
+![alt text](screenshots/article_info.png "This page attempts to extract the authors name and publication date of the article") <br>
+
+![alt text](screenshots/home.png "This is the default layout which summarizes the current page in 10 sentences") <br>
+
+![alt text](screenshots/instructions.png "This page lists the methods of summarization") <br> 
+
+![alt text](screenshots/home.png "This is the default layout which summarizes the current page in 10 sentences") <br>
+
+![alt text](screenshots/buttons.png "This is the default layout which summarizes the current page in 10 sentences") <br>
+
 
 
 
