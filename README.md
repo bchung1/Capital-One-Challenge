@@ -34,19 +34,19 @@ $ browserify popup.js -o bundle.js <br>
 
 #Extension Features
 
-![alt text](screenshots/home.png "This is the default layout which summarizes the current page in 10 sentences") <br>
+![alt text](screenshots/home.png) <br>
 This is the default layout which summarizes the current page in 10 sentences <br> <br>
 
-![alt text](screenshots/keywords.png "This page provides a table of keywords and phrases categorized by keywords, people, organizations, and locations. Each keyword/phrase links to a wikipedia page") <br>
-This page provides a table of keywords and phrases categorized by keywords, people, organizations, and locations <br><br>
+![alt text](screenshots/keywords.png) <br>
+This page provides a table of keywords and phrases categorized by keywords, people, organizations, and locations. Each keyword/phrase links to a wikipedia page <br><br>
 
-![alt text](screenshots/article_info.png "This page attempts to extract the authors name and publication date of the article") <br>
+![alt text](screenshots/article_info.png) <br>
 This page attempts to extract the authors name and publication date of the article <br><br>
 
-![alt text](screenshots/instructions.png "This page lists the methods of summarization") <br> 
+![alt text](screenshots/instructions.png) <br> 
 This page lists the methods of summarization <br><br>
 
-![alt text](screenshots/buttons.png "This is the default layout which summarizes the current page in 10 sentences") <br>
+![alt text](screenshots/buttons.png) <br>
 1) This button resets the page to the default setting which is a summary of 10 sentences. <br>
 2) This input field is for the title of the pasted text article. <br>
 3) This text area is for the pasted text to summarize. Entering a title in addition to the text helps summarize the text, but is optional. <br>
@@ -57,7 +57,7 @@ This page lists the methods of summarization <br><br>
 8) This button copies the displayed summary onto the clipboard. <br>
 9) This is input for the number of sentences to display for the summary. <br><br>
 
-![alt text](screenshots/highlight_text.png "This is the default layout which summarizes the current page in 10 sentences") <br>
+![alt text](screenshots/highlight_text.png) <br>
 
 This is the bonus objective I added which highlights the summary sentences in the current browser page. I hoped that this feature would help readers easily identify the summary sentences. Some sentences need more context and this feature is quick way to achieve this. To highlight the text I used a jquery plugin by Johann Burkard.<br> <br>
 
