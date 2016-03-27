@@ -46,9 +46,6 @@ This page attempts to extract the authors name and publication date of the artic
 This page lists the methods of summarization <br><br>
 
 ![alt text](screenshots/buttons.png "This is the default layout which summarizes the current page in 10 sentences") <br>
-This is the default layout which summarizes the current page in 10 sentences <br><br>
-
-![alt text](screenshots/buttons.png "This is the default layout which summarizes the current page in 10 sentences") <br>
 1) This button resets the page to the default setting which is a summary of 10 sentences. <br>
 2) This input field is for the title of the pasted text article. 
 3) This text area is for the pasted text to summarize. Entering a title in addition to the text helps summarize the text, but is optional. <br>
