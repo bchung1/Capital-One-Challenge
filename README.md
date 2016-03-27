@@ -22,7 +22,8 @@ In order to use this extension all you need is your own ID and key from Aylien T
 Steps: <br>
 
 1) Sign up here https://developer.aylien.com/signup and get 1,000 calls a day for free. <br>
-2) Open the repository and open popup.js which is in the js folder. At the very top there are two variables ID and key. Assign to those variables your key and ID. <br>
+2) Open the repository and open popup.js in the js folder. At the very top there are two variables ID and key. Assign to those variables your key and ID. <br>
+![alt text](screenshots/api_key.png "This is the default layout which summarizes the current page in 10 sentences") <br><br>
 3) Now we have to update the bundle.js file using browserify.js which is a tool for compiling node-flavored commons modules for the browser. <br>
 4) To update bundle.js with the new key and ID, enter: <br>
 
@@ -58,7 +59,7 @@ This page lists the methods of summarization <br><br>
 
 ![alt text](screenshots/highlight_text.png "This is the default layout which summarizes the current page in 10 sentences") <br>
 
-This is the bonus objective I added which highlights the summary sentences in the current browser page. I hoped that this feature would help readers easily identify the summary sentences. Some sentences need more context and this feature is quick way to achieve this. <br> <br>
+This is the bonus objective I added which highlights the summary sentences in the current browser page. I hoped that this feature would help readers easily identify the summary sentences. Some sentences need more context and this feature is quick way to achieve this. To highlight the text I used a jquery plugin by Johann Burkard<br> <br>
 
 
 
