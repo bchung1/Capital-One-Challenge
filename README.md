@@ -34,18 +34,36 @@ $ sudo browserify popup.js -o bundle.js <br>
 #Extension Features
 
 ![alt text](screenshots/home.png "This is the default layout which summarizes the current page in 10 sentences") <br>
+This is the default layout which summarizes the current page in 10 sentences <br>
 
 ![alt text](screenshots/keywords.png "This page provides a table of keywords and phrases categorized by keywords, people, organizations, and locations") <br>
 
-![alt text](screenshots/article_info.png "This page attempts to extract the authors name and publication date of the article") <br>
+This page provides a table of keywords and phrases categorized by keywords, people, organizations, and locations <br>
 
-![alt text](screenshots/home.png "This is the default layout which summarizes the current page in 10 sentences") <br>
+![alt text](screenshots/article_info.png "This page attempts to extract the authors name and publication date of the article") <br>
+This page attempts to extract the authors name and publication date of the article <br>
 
 ![alt text](screenshots/instructions.png "This page lists the methods of summarization") <br> 
-
-![alt text](screenshots/home.png "This is the default layout which summarizes the current page in 10 sentences") <br>
+This page lists the methods of summarization <br>
 
 ![alt text](screenshots/buttons.png "This is the default layout which summarizes the current page in 10 sentences") <br>
+This is the default layout which summarizes the current page in 10 sentences <br>
+
+![alt text](screenshots/buttons.png "This is the default layout which summarizes the current page in 10 sentences") <br>
+1) This button resets the page to the default setting which is a summary of 10 sentences. <br>
+2) This input field is for the title of the pasted text article. 
+3) This text area is for the pasted text to summarize. Entering a title in addition to the text helps summarize the text, but is optional. <br>
+4) This button decrements the number of sentences displayed by 1 sentence. <br>
+5) This button increments the number of sentences displayed by 1 sentence. <br>
+6) This button decreases the font size of the summary. <br>
+7) This button increases the font size of the summary. <br> 
+8) This button copies the displayed summary onto the clipboard. <br>
+9) This is input for the number of sentences to display for the summary. <br>
+
+![alt text](screenshots/highlight.png "This is the default layout which summarizes the current page in 10 sentences") <br>
+
+This is the bonus objective I added which highlights the summary sentences in the current browser page. I hoped that this feature would help readers easily identify where the summary sentences and its context in the article as whole. <br> 
+
 
 
 
