@@ -1,0 +1,14 @@
+{
+  "name": "Summarizer",
+  "version": "1.0.0",
+  "manifest-version": 2,
+  "description": "Summarizes online articles",
+  "main": "popup.js",
+  "author": "Brian Chung",
+  "license": "MIT",
+  "dependencies": {
+    "aylien_textapi": "0.5.0",
+    "browserify": "13.0.0",
+    "watchify": "3.7.0"
+  }
+}

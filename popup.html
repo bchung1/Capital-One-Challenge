@@ -1,0 +1,65 @@
+<!DOCTYPE html> 
+<html lang="en" ng-app="SummarizerExtension" ng-csp>
+<head>
+	<title>Summarizer</title>
+	<link rel="stylesheet" href="css/popup.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container" id="main_container">
+		<div class="pull-right">
+				<button type="button" class="btn btn-default" id="reset" title="reset"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
+		</div>
+		<br>
+		<div class="page-header" id="title">
+			<strong><h2 class="text-center">Summarizer</h2></strong>
+		</div>
+		<input type="text" class="form-control" id="article_title" placeholder="Paste article title here">
+		<br>
+		<div class="input-group">
+			<textarea class="form-control custom-control" id="pasted_text" type="text" placeholder="Or Paste Text Here"row="1" style="resize:none"></textarea>     
+			<span class="input-group-addon btn btn-primary" id="text_submit">Summarize!</span>
+		</div>
+		<br>
+		<div class="jumbotron">
+			<div class-"navbar-outer">
+				<ul class="nav nav-tabs">
+					<li class="active"><a href="popup.html">Home</a></li>
+					<li><a href="keywords.html">Keywords/Terms</a></li>
+					<li><a href="article_info.html">Article Info</a></li>
+					<li><a href="howto.html">Instructions</a></li>
+				</ul>
+			</div> 
+			<br>
+			<div class="input-group">
+				<input type="text" class="form-control" id="insert_num_sentences" placeholder="Insert Number of Sentences">
+				<div class="input-group-btn">
+					<button type="button" class="btn btn-default" id="minus_button" title="decrease summary"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
+					<button type="button" class="btn btn-default" id="plus_button" title="increase summary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+					<button type="button" class="btn btn-default" id="decr_font" title="decrease font"><span class="glyphicon glyphicon-zoom-out" aria-hidden="true"></span></button>
+					<button type="button" class="btn btn-default" id="incr_font" title="increase font"><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span></button>
+					<button type="button" class="btn btn-default" id="copy_button" title="copy summary"><span class="glyphicon glyphicon-copy" aria-hidden="true"></span></button>
+				</div> 
+			</div> 
+			<br>
+			<div ng-controller="PopupListController" id="summary_container">
+				<ol id="list">
+					<li id="sentence" ng-repeat="sentence in sentences" ng-mouseover = "hoverIn()" 
+					ng-mouseleave="hoverOut()">
+						{{sentence}} 
+					</li>
+				</ol>
+			</div>
+			<div id="attribution"class="text-right">Attribution to Aylien</div>
+		</div>
+	</div>
+	<script src="js/lib/jquery-2.2.1.min.js"></script>
+	<script src="js/lib/bootstrap.min.js"></script>
+	<script src="js/lib/angular.min.js"></script>
+	<script src="js/lib/angular-route.min.js"></script>
+	<script src="js/lib/jquery.highlight.js"></script>
+	<script type="text/javascript" src="js/bundle.js"></script>
+</body>
+</html>
+
+

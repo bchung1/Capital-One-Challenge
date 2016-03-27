@@ -1,0 +1,59 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+	<title>Summarizer</title>
+	<link rel="stylesheet" href="css/popup.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container" id="main_container">
+		<div class="pull-right">
+				<button type="button" class="btn btn-default" id="reset" title="reset"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
+		</div>
+		<div class="page-header" id="title">
+			<h3 class="text-center">Summarizer</h3>
+		</div>
+
+		<input type="text" class="form-control" id="article_title" placeholder="Paste article title here">
+		<br>
+		<div class="input-group">
+			<textarea class="form-control custom-control" id="pasted_text" type="text" placeholder="Or Paste Text Here"row="1" style="resize:none"></textarea>     
+			<span class="input-group-addon btn btn-primary" id="text_submit">Summarize!</span>
+		</div>
+		<br>
+		<div class="jumbotron">
+			<div class-"navbar-outer">
+				<ul class="nav nav-tabs">
+					<li><a href="popup.html">Home</a></li>
+					<li><a href="keywords.html">Keywords/Terms</a></li>
+					<li><a href="article_info.html">Article Info</a></li>
+					<li class="active"><a href="howto.html">Instructions</a></li>
+				</ul>
+			</div> 
+			<br>
+			<p>
+				<strong>Method 1:</strong> Summarizes the article of the current page.<br>
+				<h4>Steps:</h4>
+				<ol>
+					<li>Have desired article loaded on your screen.</li>
+					<li>Click extension icon.</li>
+				</ol>
+			</p>
+			<p>
+				<strong>Method 2:</strong> Summarizes inputed text.<br>
+				<h4>Steps:</h4>
+				<ol>
+					<li>Enter the article title into the article title input box.</li>
+					<li>Enter desired text to summarize and click the summarize button.</li>
+				</ol>
+			</p>
+			<div class="text-right" id="attribution">Attribution to Aylien</div>
+		</div>
+	</div>
+	<script src="js/lib/jquery-2.2.1.min.js"></script>
+	<script src="js/lib/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/bundle.js"></script>
+</body>
+</html>
+
+

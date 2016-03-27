@@ -1,0 +1,34 @@
+#title { 
+	font-family: nevis;
+}
+
+#main_container { 
+	width: 600px;
+	min-width: 400px;
+}
+
+#summary_container{
+	font-family: garamond; 
+	font-size:medium;
+}
+
+.navbar-outer { 
+	width: 40px;
+}
+
+#attribution{ 
+	font-size:75%;
+}
+
+#important_words { 
+	display:inline-block;
+}
+
+table{
+	table-layout: fixed; 
+	width: 100%;
+}
+
+.hover{ 
+	background-color:pink;
+}
