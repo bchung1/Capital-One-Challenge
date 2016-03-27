@@ -7,7 +7,7 @@ In order to use this exension you need to first install node.js https://nodejs.o
 After installing node.js enter these into the command line: <br>
 1) Get repository: <br>
 
-$ git -clone https://github.com/bchung1/Capital-One-Challenge.git <br>
+$ git clone https://github.com/bchung1/Capital-One-Challenge.git <br>
 
 2) Open the folder "Capital-One-Challenge" and install local dependencies: aylien_textapi <br>
 
