@@ -1,6 +1,6 @@
 # Capital One Article Summarization Challenge
 This project is a google chrome extension that summarizes online articles.
-This extension uses Aylien Text API to summarize online articles and extract key information.
+This extension uses Aylien Text API to summarize online articles and extract key information. It also uses chrome.storage to store articles and summarizes. 
 
 #Install
 Enter these into the command line: <br>
@@ -55,7 +55,7 @@ In case the extension cannot summarize the current page, the user has the option
 
 ![alt text](screenshots/history.png) ![alt text](screenshots/history_example.png)
 <h3>History</h3>
-This page displays all the saved summaries. The user can read the summary, original text, remove the summary, or clear the history. <br>
+This page displays all the saved summaries. The user can read the summary, original text, open article in new tab, remove the summary, or clear the history. <br>
 
 ![alt text](screenshots/howto.png) <br> 
 <h3>This page is a very basic set of instructions for this extension.</h3>
