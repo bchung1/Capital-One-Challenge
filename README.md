@@ -35,7 +35,7 @@ Steps: <br>
 3) This button increases the font size. <br>
 4) This button copies the summary to the clipboard. <br>
 5) This button resizes the browser to allow the user to read the summary and the article simultaneously. <br>
-6) This button saves the summary to chrome storage. <br>
+6) This button saves the summary to chrome storage. <br><br>
 ![alt text](screenshots/homepage.png) <br>
 
 <h3>My Bonus Objective</h3>
@@ -43,23 +43,23 @@ The bonus objective I added was to highlight the summary sentences and the keywo
 ![alt text](screenshots/resize.png ) <br>
 
 <h3>Summary Alternative</h3>
-In case the extension cannot summarize the current page, the user has the option to paste the article title and text. <br>
+In case the extension cannot summarize the current page, the user has the option to paste the article title and text. <br><br>
 ![alt text](screenshots/summarize_fail.png) <br>
 
 <h3>Keywords/Phrases</h3>
-This page provides a table of keywords and phrases categorized by keywords, people, organizations, and locations. Each keyword/phrase links to a wikipedia page <br>
+This page provides a table of keywords and phrases categorized by keywords, people, organizations, and locations. Each keyword/phrase links to a wikipedia page <br><br>
 ![alt text](screenshots/keywords.png) <br>
 
 <h3>Article Info</h3>
-This page displays the author and publication date of the article <br>
+This page displays the author and publication date of the article <br><br>
 ![alt text](screenshots/article_info.png) <br>
 
 <h3>History</h3>
-This page displays all the saved summaries. The user can read the summary or original text, open the url, remove the summary, or clear the history. <br>
+This page displays all the saved summaries. The user can read the summary or original text, open the url, remove the summary, or clear the history. <br><br>
 ![alt text](screenshots/history.png) <br>![alt text](screenshots/history_example.png)
 
 <h3>Instructions</h3>
-This page is a very basic set of instructions for this extension. <br>
+This page is a very basic set of instructions for this extension. <br><br>
 ![alt text](screenshots/howto.png) <br> 
 
 
