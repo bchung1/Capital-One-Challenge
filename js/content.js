@@ -19,3 +19,14 @@ chrome.runtime.onMessage.addListener(
 			$('body').unhighlight();
 		}
 	});
+
+// listener to highlight summary sentences
+chrome.runtime.onMessage.addListener(
+	function(request, sender, sendResponse) {
+		if(request.command == "resize") {
+			$('body').width($(window).width() - 600);
+			$('body').css('margin','100px');
+		}
+	});
+
+

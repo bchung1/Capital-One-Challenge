@@ -1,0 +1,61 @@
+<!DOCTYPE html> 
+<html lang="en" ng-app="HistoryPage" ng-csp>
+<head>
+	<title>Summarizer</title>
+	<link rel="stylesheet" href="css/popup.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container" id="main_container">
+		<br>
+		<div class="jumbotron">
+			<div class-"navbar-outer">
+				<ul class="nav nav-tabs">
+					<li><a href="popup.html">Home</a></li>
+					<li><a href="keywords.html">Keywords/Terms</a></li>
+					<li><a href="article_info.html">Article Info</a></li>
+					<li class="active"><a href="history.html">History</a></li>
+					<li><a href="howto.html">Instructions</a></li>
+				</ul>
+			</div> 
+			<br>
+			<div class="ng-cloak">
+				<div ng-controller="HistoryController" id="history_container">
+					<div class="text-center">
+						<h3 class="text-center" id="no_history_msg">No History</h3>
+						<button id="clear_history_btn" ng-click="clearHistory()" class="btn btn-danger">Clear History</button>
+					</div> <br>
+					<accordion close-others = "true"> 
+						<accordion-group is-open="isopen" ng-repeat="(key,value) in articles"> 
+						<accordion-heading> {{key}}</accordion-heading> 
+						<button class="btn btn-primary" ng-click="showSummary()">Summary</button>
+						<button class="btn btn-primary" ng-click="showArticle()">Original Article</button>
+						<a  target="_blank" ng-href="{{value.URL}}"><button class="btn btn-primary">Go to Article</button></a>
+						<button class="btn btn-danger pull-right remove_article" ng-click="removeArticle(key)">Remove</button>
+						<br><br>
+						<ol class="saved_summary">
+							<li ng-repeat="line in value.summary">{{line}}</li>
+						</ol>
+						<div class="saved_article">
+							{{value.text}}
+						</div>
+					</accordion-group> 
+				</accordion>
+			</div>
+		</div>
+	</div> 
+	<div class="text-right" id="attribution">Attribution to Aylien</div>
+</div> 
+
+</div>
+<script src="js/lib/jquery-2.2.1.min.js"></script>
+<script src="js/lib/bootstrap.min.js"></script>
+<script src="js/lib/angular.min.js"></script>
+<script src="js/lib/angular-route.min.js"></script>
+<script type="text/javascript" src="js/lib/ui-bootstrap.js"></script>
+<script src="js/lib/chrome-Storage-largeSync.min.js"></script>
+<script type="text/javascript" src="js/bundle.js"></script>
+</body>
+</html>
+
+

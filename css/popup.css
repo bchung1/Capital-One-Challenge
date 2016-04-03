@@ -8,8 +8,18 @@
 }
 
 #summary_container{
-	font-family: garamond; 
+	font-family: arial; 
 	font-size:medium;
+}
+
+#alt_smmry_container{ 
+	display:none;
+	text-align:center;
+}
+
+#alt_keywords_container{
+	display:none;
+	text-align:center;
 }
 
 .navbar-outer { 
@@ -20,9 +30,9 @@
 	font-size:75%;
 }
 
-#important_words { 
+/*#important_words { 
 	display:inline-block;
-}
+}*/
 
 table{
 	table-layout: fixed; 
@@ -31,4 +41,31 @@ table{
 
 .hover{ 
 	background-color:pink;
+}
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
+textarea { 
+	resize:vertical; 
+}
+
+.saved_article{ 
+	display:none;
+	font-family: arial;
+	font-size: medium;
+}
+
+.saved_summary{
+	font-family: arial;
+	font-size:medium;
+}
+
+#clear_history_btn{ 
+	display:none;
+}
+
+#no_history_msg{ 
+	display:none;
 }

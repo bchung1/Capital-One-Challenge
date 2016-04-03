@@ -1,5 +1,5 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-var ID = "YOUR_ID"; 
+var ID = "YOUR-ID"; 
 var key = "YOUR-KEY";
 /***************************************************************************
 *******************       SUMMARY CONTROLLER        ************************
@@ -7,21 +7,65 @@ var key = "YOUR-KEY";
 
 var myApp = angular.module('SummarizerExtension', ['ngRoute']);
 myApp.controller("PopupListController", function ($scope) {
-  var pasted_text; 
-  var summary_type; 
+
+  var summary_type = URL; 
   var URL;
-  var textapi; 
+  var textapi;
   var title; 
+  var text; 
+  var summary; 
   var font_size_idx = 1; 
   var font_sizes = ['small', 'medium', 'large', 'x-large'];
+  var resize = 'grow'; 
 
   // when the popup is opened a default summary of 
   // 10 sentences is displayed 
   $( document ).ready(function() {
-    //initialize summary has 10 sentences
-    initialize(); 
-    summary_type = 'URL';
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+      chrome.tabs.sendMessage(tabs[0].id, {'command': 'getURL'}, function(response) {
+        getTextApiObject(); 
+        URL = response;
+        initialize(URL);
+      });
+    });
   });
+
+  function initialize(URL){
+   textapi.extract({
+    url: URL
+  }, function(error, response) {
+    if (error === null) {
+      initializeSummary(response.title, response.article, function(){ 
+       summarizeSentencesText(10);
+     }); 
+    };
+  });
+ }
+
+
+ function initializeSummary(param_title, param_text, callback){
+  title = param_title;
+  text = param_text;
+  callback();
+}
+
+// saves summary to chrome storage for offline reading
+$('#save').click(function(){ 
+  var json = {}; 
+  json[title] = {'URL':URL,'text':text,'summary':summary};
+  chrome.storage.largeSync.set(json, function(){ 
+  });
+
+}); 
+
+// Resizes browser body so user can read original article and summary 
+// at the same time. 
+$('#resize').click(function(){ 
+  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+    chrome.tabs.sendMessage(tabs[0].id, {'command': 'resize'});
+  });
+}); 
+
 
   // increases the summary font size
   $('#incr_font').click(function (){
@@ -60,68 +104,24 @@ myApp.controller("PopupListController", function ($scope) {
   window.getSelection().removeAllRanges();  
 }); 
 
-  // resets the summary to the default summary 
-  // which is a summary of 10 sentences of the 
-  // current webpage 
-  $('#reset').click(function(){
-    $('#temp').empty(); 
-    $('#list').css('display', 'block');
-    initialize(); 
-  }); 
-
   // summarizes the pasted text into 10 sentences
   $( '#text_submit' ).click(function() {
     title = $('#article_title').val(); 
     $('#article_title').val(''); 
-    pasted_text = $('#pasted_text').val();
+    text = $('#pasted_text').val();
     $('#pasted_text').val('');
-    summarizeSentencesText(textapi,pasted_text,10);
+    summarizeSentencesText(10);
   });
 
 // Grab input value when enter key is pressed 
 $('#insert_num_sentences').keypress(function (e) {
   if (e.which == 13) {
     var num_sentences = $(this).val();
-    if(summary_type == 'URL'){
-      summarizeSentencesURL(textapi,URL,num_sentences); 
-    }else if(summary_type == 'text'){
-      summarizeSentencesText(textapi,pasted_text,num_sentences);
-    }
+    summarizeSentencesText(num_sentences);
     $(this).val('');
     return false;   
   }
 });
-
-// increment number of sentences when plus button clicked 
-$("#plus_button").click(function(event) {
-  var length = $('#list>li').length;
-  if(summary_type == 'URL'){
-    summarizeSentencesURL(textapi,URL,length + 1); 
-  }else if(summary_type == 'text'){ 
-    summarizeSentencesText(textapi,pasted_text,length + 1); 
-  }
-});
-
-// decrement number of sentences when minus button clicked 
-$("#minus_button").click(function(event) {
-  var length = $('#list>li').length;
-  if(summary_type == 'URL'){
-    summarizeSentencesURL(textapi,URL,length - 1); 
-  }else if(summary_type == 'text'){ 
-    summarizeSentencesText(textapi,pasted_text,length - 1); 
-  }
-});
-
-// This function handles all the calls for a new summary 
-function initialize(){
-  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-    chrome.tabs.sendMessage(tabs[0].id, {'command': 'getURL'}, function(response) {
-      textapi = getTextApiObject(); 
-      URL = response;
-      summarizeSentencesURL(textapi, URL, 10);
-    });
-  });
-}
 
 // return textapi object
 function getTextApiObject(){
@@ -130,7 +130,6 @@ function getTextApiObject(){
     application_id: ID, 
     application_key: key
   });
-  return textapi; 
 }
 
 // Data bind the array of setences returned by the textapi object's call
@@ -147,48 +146,47 @@ function summarizeSentencesURL(textapi, URL, num_sentences){
       $scope.sentences = response.sentences; 
       $scope.$apply(); 
     }else{
-      $('.jumbotron').append(
-        "<h4>Sorry, couldn't extract summary</h4> <br>"
-        );
-      $('.jumbotron').css('text-align','center');
-      $('.jumbotron').append('<img id="sadFace" src="img/sad_face.png"/>');
+      $('#alt_smmry_container').show(); 
+      $('#sentences_bar').hide(); 
+      summary_type = 'URL';
     }
-    summary_type = 'URL';
   });
 }
 
 // Data bind the array of setences returned by the textapi object's call
 // to the method .summarize() to the {{sentence}} expression with text. 
-function summarizeSentencesText(textapi,text, num_sentences){ 
-  if(title == ''){
-    title = parseString(text);
-  }
-  textapi.summarize({
-    title: title, 
-    text: text,
-    sentences_number: num_sentences
-  }, function(error, response) {
-    if (error === null) {
-      if(response.sentences.length == 0){
-        if(summary_type != 'text'){
-          $('#list').css('display','none');
-          $('.jumbotron').append(
-            "<strong><h4 id='temp'>Text is too short!</h4></strong>"
-            );
-          $('#temp').css('text-align','center');
-        }
-      }else{
-        $('#list').css('display','block');
-        $('#temp').empty();
-        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-          chrome.tabs.sendMessage(tabs[0].id, {'command': 'unhighlight'});
-        });
-        $scope.sentences = response.sentences; 
-        $scope.$apply(); 
-      }
-      summary_type = 'text';
-    }
-  });
+function summarizeSentencesText(num_sentences){
+ if(text == ''){
+  $('#summary_container').hide(); 
+  $('#alt_smmry_container').show(); 
+  $('#sentences_bar').hide();
+}else{
+ if(title == ''){
+  title = parseString(text);
+}
+textapi.summarize({
+  title: title, 
+  text: text,
+  sentences_number: num_sentences
+}, function(error, response) {
+  if (error === null) {
+    if(response.sentences.length == 0){
+      $('#pasted_text').val('Text too short to summarize');
+    }else{
+     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+      chrome.tabs.sendMessage(tabs[0].id, {'command': 'highlight', 'text':response.sentences});
+    });
+     $('#alt_smmry_container').hide(); 
+     $('#sentences_bar').show(); 
+     $('#summary_container').show(); 
+     summary = response.sentences; 
+     $scope.sentences = response.sentences; 
+     $scope.$apply(); 
+     summary_type = 'text';
+   }
+ }
+});
+}
 }
 });
 
@@ -205,37 +203,86 @@ function parseString(text){
 var myApp = angular.module('KeywordsPage', ['ngRoute']);
 myApp.controller("KeywordsController", function ($scope) {
 
+  var text; 
+  var textapi; 
+
   $( document ).ready(function() {
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
       chrome.tabs.sendMessage(tabs[0].id, {'command': 'getURL'}, function(response) {
-        /*getKeywords(response);*/
-        var AYLIENTextAPI = require('aylien_textapi');
-        textapi = new AYLIENTextAPI({
-      application_id: ID, // can get your own id and key at https://developer.aylien.com/signup
-      application_key: key
-    });
-        getKeywords(textapi, response);
-        
+        getTextApiObject(); 
+        initialize(textapi, response);
       });
     });
   });
 
+// summarizes the pasted text into 10 sentences
+$( '#keywords_submit' ).click(function() {
+  title = $('#article_title').val(); 
+  $('#article_title').val(''); 
+  text = $('#pasted_text').val();
+  $('#pasted_text').val('');
+  getKeywords(textapi,text);
+});
+
+// return textapi object
+function getTextApiObject(){
+  var AYLIENTextAPI = require('aylien_textapi');
+  textapi = new AYLIENTextAPI({
+    application_id: ID, 
+    application_key: key
+  });
+}
+
+function initialize(textapi, URL){
+ textapi.extract({
+  url: URL
+}, function(error, response) {
+  if (error === null) {
+    getArticleInfo(response.article, function(){ 
+      getKeywords(textapi,text);
+    }); 
+  };
+});
+}
+
+
+function getArticleInfo(param_text, callback){
+  text = param_text;
+  callback();
+}
+
   // extracts the keywords from the article
-  function getKeywords(textapi, url){
+  function getKeywords(textapi,text){
+    if(text == ''){
+      $('#keywords_container').hide(); 
+      $('#alt_keywords_container').show(); 
+    }
     textapi.entities({
-      url: url 
+      text: text
     }, function(error, response) {
       if (error === null) {
-        $scope.organizations = response.entities.organization; 
-        $scope.persons = response.entities.person; 
-        $scope.keywords = response.entities.keyword;
-        $scope.locations = response.entities.location;
-        $scope.wikiLink = 'https://www.wikipedia.org/wiki/';
-        $scope.$apply(); 
+        if(response.entities.length != 0){
+          $('#alt_keywords_container').hide();
+          $('#keywords_container').show(); 
+          $scope.organizations = response.entities.organization; 
+          $scope.persons = response.entities.person; 
+          $scope.keywords = response.entities.keyword;
+          $scope.locations = response.entities.location;
+          $scope.wikiLink = 'https://www.wikipedia.org/wiki/';
+          $scope.$apply(); 
+          chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+           var person =  response.entities.person; 
+           var keywords =  response.entities.keyword; 
+           var organizations =  response.entities.organization; 
+           var locations = response.entities.location; 
+           var bundle = person.concat(keywords).concat(organizations).concat(locations);
+           chrome.tabs.sendMessage(tabs[0].id, {'command': 'highlight', 'text':bundle});
+         });
+        }
       }
     });
 
-  }
+}
 
 });
 
@@ -249,18 +296,16 @@ myApp.controller("info", function ($scope) {
  $( document ).ready(function() {
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     chrome.tabs.sendMessage(tabs[0].id, {'command': 'getURL'}, function(response) {
-      /*getKeywords(response);*/
       var AYLIENTextAPI = require('aylien_textapi');
       textapi = new AYLIENTextAPI({
         application_id: ID,
         application_key: key
       });
       getInfo(textapi, response);
-
     });
   });
 });
- 
+
  //attempts to extract the author's name and the publication date
  function getInfo(textapi, url){
   textapi.extract({
@@ -269,28 +314,81 @@ myApp.controller("info", function ($scope) {
     var author; 
     var date; 
     if (error === null) {
-      author = response.author; 
-      date = response.publishDate; 
       if(response.author == ''){ 
-        author = "Couldn't extract author :("
+        author = "Failed to extract author"
+      }else{
+        author = response.author; 
       }
       if(response.publishDate == ''){ 
-        date = "Couldn't extract publish date :("
+        date = "Failed to extract publish date"
+      }else{
+        date = parseDate(response.publishDate);
       }
       $scope.author = author;  
       $scope.pub_date = date; 
+      $scope.show = true; 
       $scope.$apply(); 
     }
   });
 }
 
-
-
-
+// extracts only the date portion of string
+function parseDate(date){
+  return date.slice(0,10);
+}
 });
 
+/***************************************************************************
+************************* HISTORY CONTROLLER *******************************
+****************************************************************************/
 
+var myApp = angular.module('HistoryPage', ['ui.bootstrap']);
+myApp.controller("HistoryController", function ($scope) {
+  $( document ).ready(function() {
+    chrome.storage.largeSync.get(null, function(items){
+      printSummaryHistory(items);
+    });
+  });
 
+  function printSummaryHistory(items){
+    if(jQuery.isEmptyObject(items)){
+      $('#clear_history_btn').hide(); 
+      $('#no_history_msg').show(); 
+    }else{
+     $('#clear_history_btn').show(); 
+     $('#no_history_msg').hide(); 
+   }
+   $scope.articles = items;
+   $scope.$apply(); 
+ }
+
+ $scope.showSummary = function(){ 
+  $('.saved_article').hide();
+  $('.saved_summary').show(); 
+}
+
+$scope.showArticle = function(){ 
+  $('.saved_summary').hide(); 
+  $('.saved_article').show();  
+}
+
+$scope.removeArticle = function(key){
+  chrome.storage.largeSync.remove([key],function(){ 
+   chrome.storage.largeSync.get(null, function(items){
+    printSummaryHistory(items);
+  });
+ });
+}
+
+$scope.clearHistory = function(){ 
+  chrome.storage.largeSync.clear(function(){ 
+   chrome.storage.largeSync.get(null, function(items){
+    printSummaryHistory(items);
+  });
+ });
+}
+
+});
 
 },{"aylien_textapi":4}],2:[function(require,module,exports){
 (function (Buffer){

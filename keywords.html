@@ -7,19 +7,6 @@
 </head>
 <body>
 	<div class="container" id="main_container">
-		<div class="pull-right">
-			<button type="button" class="btn btn-default" id="reset" title="reset"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
-		</div>
-		<div class="page-header" id="title">
-			<h3 class="text-center">Summarizer</h3>
-		</div>
-
-		<input type="text" class="form-control" id="article_title" placeholder="Paste article title here">
-		<br>
-		<div class="input-group">
-			<textarea class="form-control custom-control" id="pasted_text" type="text" placeholder="Or Paste Text Here"row="1" style="resize:none"></textarea>     
-			<span class="input-group-addon btn btn-primary" id="text_submit">Summarize!</span>
-		</div>
 		<br>
 		<div class="jumbotron">
 			<div class-"navbar-outer">
@@ -27,42 +14,57 @@
 					<li><a href="popup.html">Home</a></li>
 					<li class="active"><a href="keywords.html">Keywords/Terms</a></li>
 					<li><a href="article_info.html">Article Info</a></li>
+					<li><a href="history.html">History</a></li>
 					<li><a href="howto.html">Instructions</a></li>
 				</ul>
 			</div> 
 			<br>
-			<div ng-controller="KeywordsController">
-				<table class="table table-bordered">
-					<tr>
-						<th class="text-center">Keywords</th>
-						<th class="text-center">People</th>
-						<th class="text-center">Organizations</th>
-						<th class="text-center">Location</th>
-					</tr>
-					<tr>
-						<td>
-							<div ng-repeat="keyword in keywords"><a target="_blank" ng-href="{{wikiLink + keyword}}">{{keyword}}</a></div>
-						</td>
-						<td>
-							<div ng-repeat="person in persons"><a target="_blank" ng-href="{{wikiLink + person}}">{{person}}</a></div>
-						</td>
-						<td>
-							<div ng-repeat="organization in organizations"><a target="_blank" ng-href="{{wikiLink + organization}}">{{organization}}</a></div>
-						</td>
-						<td>
-							<div ng-repeat="location in locations"><a target="_blank" ng-href="{{wikiLink + location}}">{{location}}</a></div>
-						</td>
-					</table>
+			<div class="ng-cloak">
+				<div ng-controller="KeywordsController" id="keywords_container">
+					<table class="table table-bordered">
+						<tr>
+							<th class="text-center">Keywords</th>
+							<th class="text-center">People</th>
+							<th class="text-center">Organizations</th>
+							<th class="text-center">Locations</th>
+						</tr>
+						<tr>
+							<td>
+								<div ng-repeat="keyword in keywords"><a target="_blank" ng-href="{{wikiLink + keyword}}">{{keyword}}</a></div>
+							</td>
+							<td>
+								<div ng-repeat="person in persons"><a target="_blank" ng-href="{{wikiLink + person}}">{{person}}</a></div>
+							</td>
+							<td>
+								<div ng-repeat="organization in organizations"><a target="_blank" ng-href="{{wikiLink + organization}}">{{organization}}</a></div>
+							</td>
+							<td>
+								<div ng-repeat="location in locations"><a target="_blank" ng-href="{{wikiLink + location}}">{{location}}</a></div>
+							</td>
+						</table>
+					</div>
 				</div>
-				<div class="text-right" id="attribution">Attribution to Aylien</div>
-			</div>
-		</div>
-		<script src="js/lib/jquery-2.2.1.min.js"></script>
-		<script src="js/lib/bootstrap.min.js"></script>
-		<script src="js/lib/angular.min.js"></script>
-		<script src="js/lib/angular-route.min.js"></script>
-		<script type="text/javascript" src="js/bundle.js"></script>
-	</body>
-	</html>
+				<div id="alt_keywords_container"> 
+					<div id="keywords_fail_alert"> 
+						<h4>Sorry, couldn't extract the keywords</h4> 
+						<h4>Paste the article title and text instead</h4><br>
+						<img id="sadFace" src="img/sad_face.png"/><br><br>
+					</div> 
+					<input type="text" class="form-control" id="article_title" placeholder="Article title"><br>
+					<textarea class="form-control" rows="20" id="pasted_text" type="text" placeholder="Article Text"></textarea><br>
+					<button class="btn btn-primary" id="keywords_submit">Get Keywords!</button>
+				</div>
+			</div> 
+			<div class="text-right" id="attribution">Attribution to Aylien</div>
+		</div> 
+		
+	</div>
+	<script src="js/lib/jquery-2.2.1.min.js"></script>
+	<script src="js/lib/bootstrap.min.js"></script>
+	<script src="js/lib/angular.min.js"></script>
+	<script src="js/lib/angular-route.min.js"></script>
+	<script type="text/javascript" src="js/bundle.js"></script>
+</body>
+</html>
 
 

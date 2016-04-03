@@ -7,19 +7,6 @@
 </head>
 <body>
 	<div class="container" id="main_container">
-		<div class="pull-right">
-			<button type="button" class="btn btn-default" id="reset" title="reset"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
-		</div>
-		<div class="page-header" id="title">
-			<h3 class="text-center">Summarizer</h3>
-		</div>
-
-		<input type="text" class="form-control" id="article_title" placeholder="Paste article title here">
-		<br>
-		<div class="input-group">
-			<textarea class="form-control custom-control" id="pasted_text" type="text" placeholder="Or Paste Text Here"row="1" style="resize:none"></textarea>     
-			<span class="input-group-addon btn btn-primary" id="text_submit">Summarize!</span>
-		</div>
 		<br>
 		<div class="jumbotron">
 			<div class-"navbar-outer">
@@ -27,11 +14,12 @@
 					<li><a href="popup.html">Home</a></li>
 					<li><a href="keywords.html">Keywords/Terms</a></li>
 					<li class="active"><a href="article_info.html">Article Info</a></li>
+					<li><a href="history.html">History</a></li>
 					<li><a href="howto.html">Instructions</a></li>
 				</ul>
 			</div> 
 			<br>
-			<p ng-controller="info">
+			<p ng-controller="info" class="ng-cloak">
 				<strong>Author: </strong> {{author}} <br>
 				<strong>Publication Date: </strong>{{pub_date}}
 			</p>
