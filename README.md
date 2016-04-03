@@ -57,7 +57,7 @@ In case the extension cannot summarize the current page, the user has the option
 <h3>History</h3>
 This page displays all the saved summaries. The user can read the summary, original text, open article in new tab, remove the summary, or clear the history. <br>
 
-![alt text](screenshots/howto.png =100x20) <br> 
+![alt text](screenshots/howto.png) <br> 
 <h3>This page is a very basic set of instructions for this extension.</h3>
 
 
