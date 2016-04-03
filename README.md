@@ -42,7 +42,7 @@ Steps: <br>
 <h3>My Bonus Objective</h3>
 The bonus objective I added was to highlight the summary sentences and the keywords in the current browser page. I hoped that this feature would help readers quickly identify the summary sentences in the article. Some sentences need more context and this feature is a quick way to achieve this. To highlight the text, I used a jquery plugin by Johann Burkard. 
 
-![alt text](screenshots/summarize_fail.png =250x) <br>
+![](screenshots/summarize_fail.png =250x) <br>
 <h3>Summary Alternative</h3>
 In case the extension cannot summarize the current page, the user has the option to paste the article title and text himself/herself. <br>
 
