@@ -1,6 +1,6 @@
 # Capital One Article Summarization Challenge
 This project is a google chrome extension that summarizes online articles.
-This extension uses Aylien Text API to summarize online articles and extract key information. It also uses chrome.storage to store articles and summarizes. 
+This extension uses Aylien Text API to summarize online articles and extract key information. It also uses chrome.storage to store articles and summaries. 
 
 #Install
 Enter these into the command line: <br>
@@ -35,7 +35,7 @@ Steps: <br>
 2) This button decreases the font size. <br>
 3) This button increases the font size. <br>
 4) This button copies the summary to the clipboard. <br>
-5) This button resizes the browser to allow the user to read the summary and the article. <br>
+5) This button resizes the browser to allow the user to read the summary and the article simultaneously. <br>
 6) This button saves the summary to chrome storage. <br>
 
 ![alt text](screenshots/resize.png ) <br>
@@ -44,21 +44,23 @@ The bonus objective I added was to highlight the summary sentences and the keywo
 
 ![alt text](screenshots/summarize_fail.png) <br>
 <h3>Summary Alternative</h3>
-In case the extension cannot summarize the current page, the user has the option to paste the article title and text himself/herself. <br>
+In case the extension cannot summarize the current page, the user has the option to paste the article title and text. <br>
 
 ![alt text](screenshots/keywords.png) <br>
-<h3>This page provides a table of keywords and phrases categorized by keywords, people, organizations, and locations. Each keyword/phrase links to a wikipedia page</h3>
+<h3>Keywords/Phrases</h3>
+This page provides a table of keywords and phrases categorized by keywords, people, organizations, and locations. Each keyword/phrase links to a wikipedia page <br>
 
 ![alt text](screenshots/article_info.png) <br>
-<h3>This page displays the author and publication date of the article </h3>
-
+<h3>Article Info</h3>
+This page displays the author and publication date of the article
 
 ![alt text](screenshots/history.png) <br>![alt text](screenshots/history_example.png)
 <h3>History</h3>
-This page displays all the saved summaries. The user can read the summary, original text, open article in new tab, remove the summary, or clear the history. <br>
+This page displays all the saved summaries. The user can read the summary or original text, open the url, remove the summary, or clear the history. <br>
 
 ![alt text](screenshots/howto.png) <br> 
-<h3>This page is a very basic set of instructions for this extension.</h3>
+<h3>Instructions</h3>
+This page is a very basic set of instructions for this extension.
 
 
 
