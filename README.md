@@ -39,7 +39,7 @@ Steps: <br>
 ![alt text](screenshots/homepage.png) <br>
 
 <h3>My Bonus Objective</h3>
-The bonus objective I added was to highlight the summary sentences and the keywords in the current browser page. I hoped that this feature would help readers quickly identify the summary sentences in the article. Some sentences need more context and this feature is a quick way to achieve this. To highlight the text, I used a jquery plugin by Johann Burkard. 
+The bonus objective I added was to highlight the summary sentences and the keywords in the current browser page. I hoped that this feature would help readers quickly identify the summary sentences in the article. Some sentences need more context and this feature is a quick way to achieve this. To highlight the text, I used a jquery plugin by Johann Burkard. <br>
 ![alt text](screenshots/resize.png ) <br>
 
 <h3>Summary Alternative</h3>
@@ -51,7 +51,7 @@ This page provides a table of keywords and phrases categorized by keywords, peop
 ![alt text](screenshots/keywords.png) <br>
 
 <h3>Article Info</h3>
-This page displays the author and publication date of the article
+This page displays the author and publication date of the article <br>
 ![alt text](screenshots/article_info.png) <br>
 
 <h3>History</h3>
@@ -59,7 +59,7 @@ This page displays all the saved summaries. The user can read the summary or ori
 ![alt text](screenshots/history.png) <br>![alt text](screenshots/history_example.png)
 
 <h3>Instructions</h3>
-This page is a very basic set of instructions for this extension.
+This page is a very basic set of instructions for this extension. <br>
 ![alt text](screenshots/howto.png) <br> 
 
 
