@@ -29,7 +29,6 @@ Steps: <br>
 
 #Extension Features
 
-![alt text](screenshots/homepage.png) <br>
 <h3>This page displays the summary of the current page.</h3>
 1) This input changes the number of sentences of the summary. <br>
 2) This button decreases the font size. <br>
@@ -37,30 +36,31 @@ Steps: <br>
 4) This button copies the summary to the clipboard. <br>
 5) This button resizes the browser to allow the user to read the summary and the article simultaneously. <br>
 6) This button saves the summary to chrome storage. <br>
+![alt text](screenshots/homepage.png) <br>
 
-![alt text](screenshots/resize.png ) <br>
 <h3>My Bonus Objective</h3>
 The bonus objective I added was to highlight the summary sentences and the keywords in the current browser page. I hoped that this feature would help readers quickly identify the summary sentences in the article. Some sentences need more context and this feature is a quick way to achieve this. To highlight the text, I used a jquery plugin by Johann Burkard. 
+![alt text](screenshots/resize.png ) <br>
 
-![alt text](screenshots/summarize_fail.png) <br>
 <h3>Summary Alternative</h3>
 In case the extension cannot summarize the current page, the user has the option to paste the article title and text. <br>
+![alt text](screenshots/summarize_fail.png) <br>
 
-![alt text](screenshots/keywords.png) <br>
 <h3>Keywords/Phrases</h3>
 This page provides a table of keywords and phrases categorized by keywords, people, organizations, and locations. Each keyword/phrase links to a wikipedia page <br>
+![alt text](screenshots/keywords.png) <br>
 
-![alt text](screenshots/article_info.png) <br>
 <h3>Article Info</h3>
 This page displays the author and publication date of the article
+![alt text](screenshots/article_info.png) <br>
 
-![alt text](screenshots/history.png) <br>![alt text](screenshots/history_example.png)
 <h3>History</h3>
 This page displays all the saved summaries. The user can read the summary or original text, open the url, remove the summary, or clear the history. <br>
+![alt text](screenshots/history.png) <br>![alt text](screenshots/history_example.png)
 
-![alt text](screenshots/howto.png) <br> 
 <h3>Instructions</h3>
 This page is a very basic set of instructions for this extension.
+![alt text](screenshots/howto.png) <br> 
 
 
 
