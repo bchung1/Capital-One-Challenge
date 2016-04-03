@@ -42,22 +42,22 @@ Steps: <br>
 <h3>My Bonus Objective</h3>
 The bonus objective I added was to highlight the summary sentences and the keywords in the current browser page. I hoped that this feature would help readers quickly identify the summary sentences in the article. Some sentences need more context and this feature is a quick way to achieve this. To highlight the text, I used a jquery plugin by Johann Burkard. 
 
-![](screenshots/summarize_fail.png =250x) <br>
+![alt text](screenshots/summarize_fail.png =100x20) <br>
 <h3>Summary Alternative</h3>
 In case the extension cannot summarize the current page, the user has the option to paste the article title and text himself/herself. <br>
 
-![alt text](screenshots/keywords.png =250x) <br>
+![alt text](screenshots/keywords.png =100x20) <br>
 <h3>This page provides a table of keywords and phrases categorized by keywords, people, organizations, and locations. Each keyword/phrase links to a wikipedia page</h3>
 
-![alt text](screenshots/article_info.png =250x) <br>
+![alt text](screenshots/article_info.png =100x20) <br>
 <h3>This page displays the author and publication date of the article </h3>
 
 
-![alt text](screenshots/history.png =250x) ![alt text](screenshots/history_example.png =250x)
+![alt text](screenshots/history.png =100x20) ![alt text](screenshots/history_example.png =100x20)
 <h3>History</h3>
 This page displays all the saved summaries. The user can read the summary, original text, open article in new tab, remove the summary, or clear the history. <br>
 
-![alt text](screenshots/howto.png =250x) <br> 
+![alt text](screenshots/howto.png =100x20) <br> 
 <h3>This page is a very basic set of instructions for this extension.</h3>
 
 
