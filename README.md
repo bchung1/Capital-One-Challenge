@@ -1,4 +1,4 @@
-# Capital One Article Summarization Challenge
+# SUMMERy - Capital One Article Summarization Challenge
 This project is a google chrome extension that summarizes online articles.
 This extension uses Aylien Text API to summarize online articles and extract key information. It also uses chrome.storage to store articles and summaries. 
 
