@@ -36,7 +36,7 @@ Steps: <br>
 4) This button copies the summary to the clipboard. <br>
 5) This button resizes the browser to allow the user to read the summary and the article simultaneously. <br>
 6) This button saves the summary to chrome storage. <br><br>
-![alt text](screenshots/homepage.png) <br>
+![ScreenShot](screenshots/homepage.png) <br>
 
 <h3>My Bonus Objective</h3>
 The bonus objective I added was to highlight the summary sentences and the keywords in the current browser page. I hoped that this feature would help readers quickly identify the summary sentences in the article. Some sentences need more context and this feature is a quick way to achieve this. To highlight the text, I used a jquery plugin by Johann Burkard. <br><br>
